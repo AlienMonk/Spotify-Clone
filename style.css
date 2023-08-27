@@ -38,7 +38,7 @@ nav ul li{
 }
 
 .container{
-    min-height: 72vh;
+    min-height: 60vh;
     background-color: black;
     color: white;
     font-family:Arial, Helvetica, sans-serif;
@@ -47,7 +47,7 @@ nav ul li{
     margin:23px auto;
     border-radius: 12px;
     padding: 34px;
-    background-image:url("bg.jpg");
+    background-image:url("background.webp");
 
 }
 .bottom{

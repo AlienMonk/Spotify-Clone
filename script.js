@@ -4,15 +4,16 @@ let audioElement=new Audio('songs/1.mp3');
 let masterPlay =document.getElementById('masterPlay');
 let myProgressBar =document.getElementById('myProgressBar');
 let gif =document.getElementById('gif');
+let masterSongName =document.getElementById('masterSongName');
 let songItems=Array.from(document.getElementsByClassName('songItem'));
 let songs=[
     {songName:"I wonder - Kanye West", filePath:"songs/1.mp3", coverPath:"covers/1.jpeg"},
     {songName:"WASTE - Kxllswxtch", filePath:"songs/2.mp3", coverPath:"covers/2.jpeg"},
-    {songName:"Salam-e-ishq", filePath:"songs/3.mp3", coverPath:"covers/3.jpg"},
-    {songName:"Salam-e-ishq", filePath:"songs/4.mp3", coverPath:"covers/4.jpeg"},
-    {songName:"Salam-e-ishq", filePath:"songs/5.mp3", coverPath:"covers/5.jpg"},
-    {songName:"Salam-e-ishq", filePath:"songs/6.mp3", coverPath:"covers/6.jpg"},
-    {songName:"Salam-e-ishq", filePath:"songs/7.mp3", coverPath:"covers/7.jpeg"},
+    {songName:"Kitse - Mohito", filePath:"songs/3.mp3", coverPath:"covers/3.jpg"},
+    {songName:"Faasle - Aditya Rikhari", filePath:"songs/4.mp3", coverPath:"covers/4.jpeg"},
+    {songName:"The night we met - Lord huron", filePath:"songs/5.mp3", coverPath:"covers/5.jpg"},
+    {songName:"Hamdard - Arijit Singh", filePath:"songs/6.mp3", coverPath:"covers/6.jpg"},
+    {songName:"I see fire - Ed sheeran", filePath:"songs/7.mp3", coverPath:"covers/7.jpeg"},
 ]
 songItems.forEach((element, i)=> {
     
@@ -69,11 +70,43 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         e.target.classList.remove('fa-play-circle');
         e.target.classList.add('fa-pause-circle');
         audioElement.src=`songs/${songIndex+1}.mp3`;
+        masterSongName.innerText=songs[songIndex].songName;
         audioElement.currentTime=0;
         audioElement.play();
+        gif.style.opacity=1;
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
     })
 })
 
-document.getElementById()
+document.getElementById('Next').addEventListener('click',()=>{
+    if(songIndex>=6){
+        songIndex=0;
+    }
+    else{
+        songIndex +=1;
+    }
+    audioElement.src=`songs/${songIndex+1}.mp3`;
+    masterSongName.innerText=songs[songIndex].songName;
+    audioElement.currentTime=0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+
+})
+
+document.getElementById('previous').addEventListener('click',()=>{
+    if(songIndex<=0){
+        songIndex=0;
+    }
+    else{
+        songIndex -=1;
+    }
+    audioElement.src=`songs/${songIndex+1}.mp3`;
+    masterSongName.innerText=songs[songIndex].songName;
+    audioElement.currentTime=0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+
+})
