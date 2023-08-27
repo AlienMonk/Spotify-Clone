@@ -71,6 +71,7 @@ nav ul li{
 
 #myProgressBar{
     width: 80vw;
+    cursor: pointer;
 
 }
 
