@@ -110,3 +110,9 @@ border-radius: 34px;
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
+
+.songItem:hover {
+    background-color: #f2f2f2;
+    transform: translateY(-3px);  /* Lifts the item up slightly on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Provides a subtle shadow beneath the item on hover */
+  }
